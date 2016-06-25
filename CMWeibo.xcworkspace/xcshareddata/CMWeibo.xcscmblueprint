@@ -1,20 +1,28 @@
 {
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "5CE8F28E9BF7513594988BECA6801616BE83DA24",
   "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
     "5b799fd2-1844-4226-9374-187af7f4984f++1130" : {
 
     }
   },
   "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "5CE8F28E9BF7513594988BECA6801616BE83DA24" : 0,
     "5b799fd2-1844-4226-9374-187af7f4984f++1130" : 0
   },
   "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "5BBA9734-C137-49F8-AE6A-15C5A731EA90",
   "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "5CE8F28E9BF7513594988BECA6801616BE83DA24" : "CMWeibo\/",
     "5b799fd2-1844-4226-9374-187af7f4984f++1130" : ""
   },
   "DVTSourceControlWorkspaceBlueprintNameKey" : "CMWeibo",
   "DVTSourceControlWorkspaceBlueprintVersion" : 204,
   "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "CMWeibo.xcworkspace",
   "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/jiachenmu\/CMWeibo.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "5CE8F28E9BF7513594988BECA6801616BE83DA24"
+    },
     {
       "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/jiachenmu%40qq.com@svn.sinacloud.com\/manoboo",
       "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Subversion",

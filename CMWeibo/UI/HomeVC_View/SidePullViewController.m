@@ -68,10 +68,16 @@ const CGFloat CornerViewHeight = 50;
 }
 
 - (void)buildUI {
-
+    
     _backView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, SidePullViewWidth, SCREEN_HEIGHT)];
     _backView.contentMode = UIViewContentModeScaleAspectFill;
     [self.view addSubview:_backView];
+    
+    //iOS8 新增加的一个具体特效，或者称之为滤镜的View，详细属性看里面的定义
+    UIVisualEffectView *effectView = [[UIVisualEffectView alloc] initWithFrame:_backView.bounds];
+    [effectView setEffect:[UIBlurEffect effectWithStyle:UIBlurEffectStyleLight]];
+    effectView.alpha = 0.5;
+    [_backView addSubview:effectView];
     
     _iconView = [[UIImageView alloc] initWithFrame:CGRectMake(SidePullViewWidth/2 - IconViewHeight/2, IconViewTopMargin, IconViewHeight, IconViewHeight)];
     _iconView.userInteractionEnabled = true;
@@ -192,7 +198,7 @@ const CGFloat CornerViewHeight = 50;
 
 //刷新页面
 - (void)refreshUI {
-
+    
     [_iconView yy_setImageWithURL:[NSURL URLWithString:_currentUser.avatar_large] placeholder:nil options:YYWebImageOptionProgressiveBlur manager:[YYWebImageManager sharedManager] progress:^(NSInteger receivedSize, NSInteger expectedSize) {
         
     } transform:^UIImage * _Nullable(UIImage * _Nonnull image, NSURL * _Nonnull url) {
@@ -201,13 +207,8 @@ const CGFloat CornerViewHeight = 50;
         
     }];
     
-    [_backView yy_setImageWithURL:[NSURL URLWithString:_currentUser.avatar_hd] placeholder:nil options:YYWebImageOptionProgressiveBlur manager:[YYWebImageManager sharedManager] progress:^(NSInteger receivedSize, NSInteger expectedSize) {
-        
-    } transform:^UIImage * _Nullable(UIImage * _Nonnull image, NSURL * _Nonnull url) {
-        return [image yy_imageByBlurExtraLight];
-    } completion:^(UIImage * _Nullable image, NSURL * _Nonnull url, YYWebImageFromType from, YYWebImageStage stage, NSError * _Nullable error) {
-        
-    }];
+    [_backView yy_setImageWithURL:[NSURL URLWithString:_currentUser.avatar_hd] placeholder:nil];
+    
 }
 
 /// build select user Button
