@@ -13,6 +13,7 @@
 #import "WeiboList.h"
 #import "CMSharpCornerView.h"
 #import "ManangeAccountViewController.h"
+#import "UIImage+GIF.h"
 
 @interface SidePullViewController()
 
@@ -94,8 +95,8 @@ const CGFloat CornerViewHeight = 50;
     
     _manageBtn = [[CMButton alloc] initWithFrame:CGRectMake(11, 6 + CornerViewHeight/2 - 8, CornerViewWidth/2 - 10, 16)];
     [_manageBtn setTitleFont:Font(16)];
-    [_manageBtn setTitle:@"管理" forState:UIControlStateNormal];
-    [_manageBtn setTitleColor:Color_NavigationBar forState:UIControlStateNormal];
+    [_manageBtn setTitle:@"管理" forState:CMControlStateNormal];
+    [_manageBtn setTitleColor:Color_NavigationBar forState:CMControlStateNormal];
     Weakself;
     [_manageBtn setAction:^(NSInteger tag) {
         NSLog(@"管理我的帐号～");
@@ -108,9 +109,9 @@ const CGFloat CornerViewHeight = 50;
     
     _addAccountBtn = [[CMButton alloc] initWithFrame:CGRectMake(CornerViewWidth/2 - 10, 6 + CornerViewHeight/2 - 8, CornerViewWidth/2, 16)];
     [_addAccountBtn setTitleLabelFrame:_addAccountBtn.bounds];
-    [_addAccountBtn setTitle:@"新帐号" forState:UIControlStateNormal];
+    [_addAccountBtn setTitle:@"新帐号" forState:CMControlStateNormal];
     [_addAccountBtn setTitleFont:Font(16)];
-    [_addAccountBtn setTitleColor:Color_NavigationBar forState:UIControlStateNormal];
+    [_addAccountBtn setTitleColor:Color_NavigationBar forState:CMControlStateNormal];
     _addAccountBtn.titleLabel.textAlignment = NSTextAlignmentRight;
     [_addAccountBtn setAction:^(NSInteger tag) {
         NSLog(@"添加新的帐号");
@@ -142,14 +143,20 @@ const CGFloat CornerViewHeight = 50;
     [_buttonArr enumerateObjectsUsingBlock:^(CMButton * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         obj.frame = CGRectMake(margin + (margin + BottomBtnWidth) * idx, origin_y, BottomBtnWidth, BottomBtnWidth + 17);
         obj.tag = idx;
-        
+        if (obj.tag == 0) {
+            [obj setTitle:@"正在缓存" forState:CMControlStateNetworkRequest];
+            [obj setImage:[UIImage imageNamed:@"DownloadSuccess"] forState:CMControlStateNetworkRequest];
+            [obj setTitle:@"缓存失败" forState:CMControlStateRequestFaliure];
+            [obj setImage:[UIImage imageNamed:@"DownloadFaliure"] forState:CMControlStateRequestFaliure];
+            
+        }
         [obj setTitleLabelFrame:CGRectMake(0, BottomBtnWidth + 7, BottomBtnWidth, 10)];
         [obj setImageViewFrame:CGRectMake(0, 0, BottomBtnWidth, BottomBtnWidth)];
         
-        [obj setTitle:_buttonTitleArr[idx] forState:UIControlStateNormal];
+        [obj setTitle:_buttonTitleArr[idx] forState:CMControlStateNormal];
         obj.titleLabel.textAlignment = NSTextAlignmentCenter;
-        [obj setTitleColor:Color_ContentText forState:UIControlStateNormal];
-        [obj setImage:_buttonImageArr[idx] forState:UIControlStateNormal];
+        [obj setTitleColor:Color_ContentText forState:CMControlStateNormal];
+        [obj setImage:_buttonImageArr[idx] forState:CMControlStateNormal];
         obj.titleLabel.font = Font(10);
         
         Weakself;
@@ -199,7 +206,7 @@ const CGFloat CornerViewHeight = 50;
 //刷新页面
 - (void)refreshUI {
     
-    [_iconView yy_setImageWithURL:[NSURL URLWithString:_currentUser.avatar_large] placeholder:nil options:YYWebImageOptionProgressiveBlur manager:[YYWebImageManager sharedManager] progress:^(NSInteger receivedSize, NSInteger expectedSize) {
+    [_iconView yy_setImageWithURL:[NSURL URLWithString:_currentUser.avatar_large] placeholder:[UIImage imageNamed:@"DefaultUserIcon"] options:YYWebImageOptionProgressiveBlur manager:[YYWebImageManager sharedManager] progress:^(NSInteger receivedSize, NSInteger expectedSize) {
         
     } transform:^UIImage * _Nullable(UIImage * _Nonnull image, NSURL * _Nonnull url) {
         return [image yy_imageByRoundCornerRadius:IconViewHeight/2];
@@ -265,22 +272,32 @@ const CGFloat CornerViewHeight = 50;
         //如果正在请求，则返回
         return;
     }
+    //设置为网络请求状态
+//    [_buttonArr[0] setControlState:CMControlStateNetworkRequest];
+
     if ([[CMCache offlineCache] objectForKey:kString_offline]) {
         //这里可以对缓存频率做一定限制,比如说每天缓存的次数限制等，这里我就不做限制了
         NSLog(@"缓存的path: %@",[CMCache offlineCache].path);
     }
-    
+    Weakself;
     [CMNetwork GET:kURL_NewPublicWeibo parameters:@{@"access_token" : [User currentUser].wbtoken, @"count" : kOfflineReqCount} success:^(NSString * _Nonnull jsonString) {
         dispatch_queue_t t = dispatch_queue_create("kString_offline", NULL);
         dispatch_async(t, ^{
             //tips:这里转成model缓存到本地更好，下次进来就不用再进行json解析了，但是自定义对象需要遵从 <NSCoding> 协议才能归档存到本地，所以就偷个懒。。😝
             [[CMCache offlineCache] setObject:jsonString forKey:kString_offline withBlock:^{
-                [SVProgressHUD showSuccessWithStatus:@"数据缓存成功😬"];
+                [weakself.buttonArr[0] setControlState:CMControlStateNetworkRequest Duration:1.0 WithAction:^(NSInteger tag, CMButton *sender) {
+                    [sender setControlState:CMControlStateNormal];
+                    [SVProgressHUD showSuccessWithStatus:@"数据缓存成功😬"];
+                }];
             }];
             isRequesting = false;
+            
         });
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-            isRequesting = false;
+        isRequesting = false;
+        [weakself.buttonArr[0] setControlState:CMControlStateRequestFaliure Duration:1.0 WithAction:^(NSInteger tag, CMButton *sender) {
+            [sender setControlState:CMControlStateNormal];
+        }];
     }];
 }
 

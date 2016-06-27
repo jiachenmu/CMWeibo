@@ -18,6 +18,11 @@
 #import "CMBrowserViewController.h"
 #import "TopicViewController.h"
 
+typedef NS_ENUM(NSInteger, HomeRequestType) {
+    HomeRequestTypeRefresh = 0,
+    HomeRequestTypeMore
+};
+
 
 @interface HomeViewController()<UITableViewDataSource,UITableViewDelegate,WeiboCellDelegate>
 
@@ -68,7 +73,7 @@
 //            NSLog(@"%@",error);
 //        }];
         
-        [self loadData];
+        [self loadDataWithRequestType:HomeRequestTypeRefresh];
     }
     
 }
@@ -125,7 +130,7 @@
     
     [SVProgressHUD show];
     
-    [self loadData];
+    [self loadDataWithRequestType:HomeRequestTypeRefresh];
     
 //    [CMNetwork GET:kURL_UserInfo parameters:@{@"access_token" : user.wbtoken, @"uid" : @(user.wbCurrentUserID.longLongValue)} success:^(NSString * _Nonnull jsonString) {
 //
@@ -170,7 +175,7 @@
 }
 
 #pragma mark - Load Data
-- (void)loadData {
+- (void)loadDataWithRequestType:(HomeRequestType)type {
     if (_currentUser != nil) {
         Weakself;
         //请求一条微博
@@ -178,8 +183,12 @@
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
             [CMNetwork GET:kURL_NewPublicWeibo parameters:@{@"access_token" : [User currentUser].wbtoken,@"count" : kRequestCount} success:^(NSString * _Nonnull jsonString) {
 //                NSLog(@"%@",jsonString);
-                weakself.list = [WeiboList initWithJSONString:jsonString];
                 
+                if (type == HomeRequestTypeRefresh) {
+                    weakself.list = [WeiboList initWithJSONString:jsonString];
+                }else {
+                    weakself.list = [weakself.list addDataFromJson:jsonString];
+                }
                 //请求到微博数据列表，刷新UI
                 [weakself.showTableView reloadData];
                 [weakself.showTableView.pullToRefreshView stopAnimating];
@@ -190,6 +199,7 @@
                 NSLog(@"请求失败了。。。");
                 NSLog(@"%@",error);
                 [weakself.showTableView.pullToRefreshView stopAnimating];
+                [weakself.showTableView.infiniteScrollingView stopAnimating];
             }];
         });
     }
@@ -213,10 +223,10 @@
     
     Weakself;
     [_showTableView addPullToRefreshWithActionHandler:^{
-        [weakself loadData];
+        [weakself loadDataWithRequestType:HomeRequestTypeRefresh];
     }];
     [_showTableView addInfiniteScrollingWithActionHandler:^{
-        [weakself loadData];
+        [weakself loadDataWithRequestType:HomeRequestTypeMore];
     }];
 }
 

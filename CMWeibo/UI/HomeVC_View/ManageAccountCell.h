@@ -9,8 +9,12 @@
 #import <UIKit/UIKit.h>
 #import "UserModel.h"
 
+typedef void(^SelectUserBlock)(void);
+
 @interface ManageAccountCell : UITableViewCell
 
 + (instancetype)cellWithTableView:(UITableView *)tablewView Model:(UserModel *)model;
+
+@property (copy, nonatomic) SelectUserBlock selectUserBlock;
 
 @end

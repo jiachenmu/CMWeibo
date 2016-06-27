@@ -13,6 +13,7 @@
 #import "WeiboImageViewContainer.h"
 #import "WeiboAttributerString.h"
 #import "ShowLargeImageView.h"
+#import "CMSharpCornerView.h"
 
 // MARK: 尺寸标注
 #define UserImgViewLeftMargin 5
@@ -52,6 +53,9 @@
 @property (strong, nonatomic) OperationBar *bar;
 /// 点击评论、转发微博、赞按钮工具栏显示
 @property (strong, nonatomic) OperationToolBar *toolBar;
+
+/// 回复的微博父View
+@property (strong, nonatomic) CMSharpCornerView *cornerView;
 
 // -MARK: frame
 @property (strong, nonatomic) CMWeiboCellFrames *cellFrames;
@@ -95,6 +99,9 @@
     _contentLabel.font = Font(16);
     [self.contentView addSubview:_contentLabel];
     
+    _cornerView = [[CMSharpCornerView alloc] initWithFrame:CGRectZero AngleLeftMargin:10 AngleWidth:10 AngleHeight:5];
+    [self.contentView addSubview:_cornerView];
+    
     _imgViewContainer = [[WeiboImageViewContainer alloc] initWithWidth:(SCREEN_WIDTH - 59 - 16)];
     Weakself;
     _imgViewContainer.clickImageBlock = ^(NSInteger imageTag){
@@ -128,6 +135,8 @@
     _soureceLabel.textColor = Color_ContentText;
     _soureceLabel.font = Font(12);
     [self.contentView addSubview:_soureceLabel];
+    
+    
 }
 
 
@@ -163,6 +172,12 @@
             [_delegate cm_weiboCellContentClickEventHandleWithContainerView:containerView Text:str Rect:rect EventType:eventType];
         }
     }];
+    
+    if (!_model.retweeted_status) {
+        _cornerView.hidden = true;
+    }else {
+        _cornerView.hidden = false;
+    }
     
     _imgViewContainer.imageUrls = _model.pic_urls;
     

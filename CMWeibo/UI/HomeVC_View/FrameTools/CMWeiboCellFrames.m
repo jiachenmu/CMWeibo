@@ -24,6 +24,10 @@
 #define PublishRightMargin 10
 #define PublishTopMargin   15
 
+#define RetweetedLeftMargin 10
+#define RetweetedTopMargin 13
+#define RetweetedBottomMargin 12
+
 #define OperationBarRightMargin  15
 #define OperationBarTopMargin    12
 #define OperationBarBottomMargin 16
@@ -52,14 +56,8 @@
      1. 原创微博
      2. 转发微博
      */
-    NSString *contentText = @"";
-    if (_model.retweeted_status == nil) {
-        //原创微博
-        contentText = _model.text;
-
-    }else {
-        
-    }
+    NSString *contentText = _model.text;
+    
     size = CM_MULTILINE_TEXTSIZE(contentText, Font(16), CGSizeMake((SCREEN_WIDTH - ContentLeftMargin - ContentRightMargin), CGFLOAT_MAX), 0);
     _contentFrame = CGRectMake(ContentLeftMargin, CGRectGetMaxY(_nameLabelFrame) + ContentTopMargin, size.width, size.height);
     
@@ -71,6 +69,13 @@
         _imageViewContainerFrame = CGRectMake(ContentLeftMargin, CGRectGetMaxY(_contentFrame) + ImageViewContainerTopMargin, SCREEN_WIDTH - ContentLeftMargin - ContentRightMargin, line_num * imageWidth + (line_num + 1) * ImageViewMargin);
     }else {
         _imageViewContainerFrame = CGRectZero;
+    }
+    
+    //回复、转发的微博 **********************
+    if (_model.retweeted_status) {
+        NSString *str = [_model.retweeted_status.text stringByAppendingString:[NSString stringWithFormat:@"\n转发(%ld) | 评论(%ld)",_model.reposts_count,_model.comments_count]];
+        size = CM_MULTILINE_TEXTSIZE(_model.retweeted_status.text, Font(16), CGSizeMake((SCREEN_WIDTH - ContentLeftMargin - ContentRightMargin), CGFLOAT_MAX), 0);
+        _retweetedTextFrame = CGRectMake(<#CGFloat x#>, <#CGFloat y#>, <#CGFloat width#>, <#CGFloat height#>)
     }
     
     //Bar ********************

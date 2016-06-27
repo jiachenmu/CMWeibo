@@ -22,4 +22,10 @@
 
 + (instancetype)initWithJSONString:(NSString *)jsonString ;
 
+
+//往一个list添加数据
+- (instancetype)addDataFromJson:(NSString *)jsonString;
+
+- (instancetype)addDataFromOtherList:(WeiboList *)list;
+
 @end

@@ -32,6 +32,7 @@
 		467CAC321CF3E83C00F487AB /* WeiboList.m in Sources */ = {isa = PBXBuildFile; fileRef = 467CAC311CF3E83C00F487AB /* WeiboList.m */; };
 		467CAC351CF3F88200F487AB /* WeiboCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 467CAC341CF3F88200F487AB /* WeiboCell.m */; };
 		467CAC391CF3FD3B00F487AB /* OperationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 467CAC381CF3FD3B00F487AB /* OperationBar.m */; };
+		467F04571D210D27002AE174 /* UIImage+GIF.m in Sources */ = {isa = PBXBuildFile; fileRef = 467F04561D210D27002AE174 /* UIImage+GIF.m */; };
 		46B566141CE9DB0A0071FADA /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 46B566131CE9DB0A0071FADA /* CoreData.framework */; };
 		46B5661D1CE9DD410071FADA /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 46B5661B1CE9DD410071FADA /* User.m */; };
 		46B566621CE9E9D90071FADA /* CoreDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 46B566611CE9E9D90071FADA /* CoreDataManager.m */; };
@@ -124,6 +125,8 @@
 		467CAC341CF3F88200F487AB /* WeiboCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WeiboCell.m; path = UI/HomeVC_View/WeiboCell.m; sourceTree = "<group>"; };
 		467CAC371CF3FD3B00F487AB /* OperationBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OperationBar.h; path = UI/HomeVC_View/OperationBar.h; sourceTree = "<group>"; };
 		467CAC381CF3FD3B00F487AB /* OperationBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OperationBar.m; path = UI/HomeVC_View/OperationBar.m; sourceTree = "<group>"; };
+		467F04551D210D27002AE174 /* UIImage+GIF.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+GIF.h"; sourceTree = "<group>"; };
+		467F04561D210D27002AE174 /* UIImage+GIF.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+GIF.m"; sourceTree = "<group>"; };
 		46B566131CE9DB0A0071FADA /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		46B5661A1CE9DD410071FADA /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
 		46B5661B1CE9DD410071FADA /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
@@ -260,6 +263,8 @@
 		462719671D17DB6700C8D844 /* ImageTools */ = {
 			isa = PBXGroup;
 			children = (
+				467F04551D210D27002AE174 /* UIImage+GIF.h */,
+				467F04561D210D27002AE174 /* UIImage+GIF.m */,
 			);
 			name = ImageTools;
 			sourceTree = "<group>";
@@ -806,6 +811,7 @@
 				4613B2731CFD93260089DD41 /* OperationToolBar.m in Sources */,
 				46FB49081CF2E67A00DB51B8 /* WeiboModel.m in Sources */,
 				46BB23101CE9D35A0017FCB9 /* DataBase.xcdatamodeld in Sources */,
+				467F04571D210D27002AE174 /* UIImage+GIF.m in Sources */,
 				46B5661D1CE9DD410071FADA /* User.m in Sources */,
 				467CAC2F1CF2EAB100F487AB /* UserModel.m in Sources */,
 				46BB22DB1CE9993F0017FCB9 /* ViewController.m in Sources */,

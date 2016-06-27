@@ -59,10 +59,14 @@ static NSString *ManageCellID = @"ManageCellID";
                 [kManagedObjectContext deleteObject:obj];
                 [kManagedObjectContext save:nil];
                 weakself.selectBtn.selected = true;
+                if (weakself.selectUserBlock) {
+                    weakself.selectUserBlock();
+                }
             }
         }];
         
     }];
+    
 }
 
 

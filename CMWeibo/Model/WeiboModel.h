@@ -98,6 +98,9 @@
 @property (strong, nonatomic) CMWeiboCellFrames *cellFrames;
 // -MARK: 正文富文本设置
 @property (strong, nonatomic) NSAttributedString *attributeStr;
+// _MARK: 回复的微博富文本
+@property (strong, nonatomic) NSAttributedString *retweetedStatusAttributeStr;
+
 // -MARK: 富文本中的点击事件
 @property (copy, nonatomic) YYTextAction tapAction;
 

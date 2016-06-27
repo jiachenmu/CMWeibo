@@ -4,17 +4,19 @@
 //
 //  Created by jiachen on 16/6/17.
 //  Copyright © 2016年 jiachenmu. All rights reserved.
-//  自定义View 非常好实现，整体构造为：
+//  自定义Button 非常好实现，整体构造为：
 /*
-    UIImageView --   UILabel  --  UIControl
+    父view      -------子View---------
+    UIControl   UIImageView + UILabel
  */
 
 
 #import "CMButton.h"
+const CGFloat kDefaultFontScale = 20;
 
 @interface CMButton()
 
-@property (assign, nonatomic) UIControlState controlState;
+@property (assign, nonatomic) CMControlState controlState;
 
 /// 记录各个情况下的Title
 @property (strong, nonatomic) NSMutableDictionary *titleStateDict;
@@ -55,7 +57,7 @@
 }
 
 - (void)dealloc {
-    
+//    NSLog(@"CMButton - dealloc");
 }
 
 //    UIControlEvents
@@ -116,20 +118,32 @@
     
 }
 
-- (void)setTitle:(NSString *)title forState:(UIControlState)state {
+- (void)setTitle:(NSString *)title forState:(CMControlState)state {
+    if (!title) {
+        title = @"";
+    }
     [_titleStateDict setObject:title forKey:@(state)];
     [self refreshTitle];
 }
 
 - (void)setTitleFont:(UIFont *)font {
+    if (!font) {
+        font = [UIFont systemFontOfSize:kDefaultFontScale];
+    }
     _titleLabel.font = font;
 }
 
-- (void)setTitleColor:(UIColor *)titleColor forState:(UIControlState)state {
+- (void)setTitleColor:(UIColor *)titleColor forState:(CMControlState)state {
+    if (!titleColor) {
+        titleColor = [UIColor blackColor];
+    }
     [_titleColorDict setObject:titleColor forKey:@(state)];
     [self refreshTitle];
 }
-- (void)setImage:(UIImage *)image forState:(UIControlState)state {
+- (void)setImage:(UIImage *)image forState:(CMControlState)state {
+    if (!image) {
+        return;
+    }
     [_imageStateDict setObject:image forKey:@(state)];
     [self refreshImage];
 }
@@ -143,11 +157,25 @@
     [_eventDict setObject:cmButtonClickBlock forKey:@(event)];
 }
 
-- (void)setControlState:(UIControlState)state {
+- (void)setControlState:(CMControlState)state {
     _controlState = state;
     [self refreshImage];
     [self refreshTitle];
 //    [self refreshFrame];
+}
+
+- (void)setControlState:(CMControlState)state Duration:(NSTimeInterval)delay WithAction:(CMButtonStateBlock)block{
+    _controlState = state;
+    [self refreshImage];
+    [self refreshTitle];
+    if (block) {
+        if (delay < 0) {
+            return;
+        }
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delay * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            block(weakSelf.tag,weakSelf);
+        });
+    }
 }
 
 #pragma mark - Refresh UI
@@ -288,17 +316,17 @@
 
 #pragma mark - UIControl event
 - (BOOL)beginTrackingWithTouch:(UITouch *)touch withEvent:(UIEvent *)event {
-    [self setControlState:UIControlStateHighlighted];
+    [self setControlState:CMControlStateHighlighted];
     
     return true;
 }
 
 - (void)endTrackingWithTouch:(UITouch *)touch withEvent:(UIEvent *)event {
-    [self setControlState:UIControlStateNormal];
+    [self setControlState:CMControlStateNormal];
 }
 
 - (void)cancelTrackingWithEvent:(UIEvent *)event {
-    [self setControlState:UIControlStateNormal];
+    [self setControlState:CMControlStateNormal];
 }
 
 @end

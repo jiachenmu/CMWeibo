@@ -14,13 +14,22 @@
 
 @implementation WeiboAttributerString
 
-
+// 微博中 正文 富文本
 + (NSAttributedString *)attributeStringWithWeiboModel:(WeiboModel *)model TapAction:(YYTextAction )tapAction {
     //先判断模型中是不是已经设置好富文本,富文本只创建一次
     if (model.attributeStr == nil && model.text.length > 0 ) {
         model.attributeStr = [WeiboAttributerString attributeStringWithString:model.text TapAction:tapAction];
     }
     return model.attributeStr;
+}
+
+// 微博中 回复的微博 富文本
++ (NSAttributedString *)retweetedStatusAttributeStrWithWeiboModel:(WeiboModel *)model TapAction:(YYTextAction )tapAction {
+    //先判断模型中是不是已经设置好富文本,富文本只创建一次
+    if (model.retweetedStatusAttributeStr == nil && model.retweeted_status && model.retweeted_status.text.length > 0 ) {
+        model.retweetedStatusAttributeStr = [WeiboAttributerString attributeStringWithString:model.retweeted_status.text TapAction:tapAction];
+    }
+    return model.retweetedStatusAttributeStr;
 }
 
 + (NSAttributedString *)attributeStringWithString:(NSString *)str TapAction:(YYTextAction )tapAction{

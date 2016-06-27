@@ -62,11 +62,8 @@
         [CMNetwork async_GET:kURL_UserInfo parameters:@{@"access_token" : obj.wbtoken, @"uid" : @(obj.wbCurrentUserID.longLongValue)} success:^(NSString * _Nonnull jsonString) {
             UserModel *model = [UserModel initWithJSONString:jsonString];
             [weakself.userArray addObject:model];
-            //如果请求完毕
-            if (weakself.userArray.count == array.count) {
-                NSLog(@"数据加载完毕～");
-                [weakself.showTableView reloadData];
-            }
+            
+            [weakself.showTableView reloadData];
         } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
             [SVProgressHUD showErrorWithStatus:[NSString stringWithFormat:@"用户%@信息请求失败",obj.wbCurrentUserID]];
         }];
@@ -93,7 +90,10 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     ManageAccountCell *cell = [ManageAccountCell cellWithTableView:tableView Model:_userArray[indexPath.row]];
-    
+    Weakself;
+    cell.selectUserBlock = ^(){
+        [weakself.showTableView reloadData];
+    };
     return cell;
 }
 

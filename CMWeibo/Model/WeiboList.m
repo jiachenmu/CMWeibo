@@ -66,4 +66,14 @@ NSString * const k_total_number = @"k_total_number";
     return list;
 }
 
+- (instancetype)addDataFromJson:(NSString *)jsonString {
+    WeiboList *list = [WeiboList initWithJSONString:jsonString];
+    return [self addDataFromOtherList:list];
+}
+
+- (instancetype)addDataFromOtherList:(WeiboList *)list {
+    self.statuses = [self.statuses arrayByAddingObjectsFromArray:list.statuses];
+    
+    return self;
+}
 @end

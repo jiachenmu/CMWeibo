@@ -35,6 +35,14 @@
 /// 正文frame 计算
 @property (assign, nonatomic) CGRect contentFrame;
 
+/** 回复、转发的微博 父控件Frame */
+@property (assign, nonatomic) CGRect cornerViewFrame;
+
+/** 回复、转发的微博 富文本Frame*/
+@property (assign, nonatomic) CGRect retweetedTextFrame;
+
+//@property (assign, nonatomic) CGRect 
+
 /// 图片容器大小
 @property (assign, nonatomic) CGRect imageViewContainerFrame;
 
