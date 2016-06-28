@@ -43,6 +43,9 @@
 /// 正文内容
 @property (strong, nonatomic) YYLabel *contentLabel;
 
+/// 回复或转发的微博
+@property (strong, nonatomic) YYLabel *retweetedLabel;
+
 /// 图片容器
 @property (strong, nonatomic) WeiboImageViewContainer *imgViewContainer;
 
@@ -100,7 +103,15 @@
     [self.contentView addSubview:_contentLabel];
     
     _cornerView = [[CMSharpCornerView alloc] initWithFrame:CGRectZero AngleLeftMargin:10 AngleWidth:10 AngleHeight:5];
+    [_cornerView setFillColor:[UIColor colorWithHex:0xEDEDED]];
     [self.contentView addSubview:_cornerView];
+    
+    _retweetedLabel = [YYLabel new];
+    _retweetedLabel.displaysAsynchronously = true;
+    _retweetedLabel.numberOfLines = 0;
+    _retweetedLabel.textColor = Color_ContentText;
+    _retweetedLabel.font = Font(14);
+    [_cornerView addSubview:_retweetedLabel];
     
     _imgViewContainer = [[WeiboImageViewContainer alloc] initWithWidth:(SCREEN_WIDTH - 59 - 16)];
     Weakself;
@@ -177,6 +188,22 @@
         _cornerView.hidden = true;
     }else {
         _cornerView.hidden = false;
+        _retweetedLabel.attributedText = [WeiboAttributerString retweetedStatusAttributeStrWithWeiboModel:_model TapAction:^(UIView * _Nonnull containerView, NSAttributedString * _Nonnull text, NSRange range, CGRect rect) {
+            NSString *str = [text.string substringWithRange:range];
+            NSLog(@"点击的文本 :%@",str);
+            WBClickEventType eventType;
+            if ([str containsString:@"#"]) {
+                eventType = WBClickEventTypeTopic;
+            }else if([str containsString:@"http"]) {
+                eventType = WBClickEventTypeHttpURl;
+            }else {
+                eventType = WBClickEventTypeAtSomeOne;
+            }
+            
+            if ([_delegate respondsToSelector:@selector(cm_weiboCellContentClickEventHandleWithContainerView:Text:Rect:EventType:)]) {
+                [_delegate cm_weiboCellContentClickEventHandleWithContainerView:containerView Text:str Rect:rect EventType:eventType];
+            }
+        }];
     }
     
     _imgViewContainer.imageUrls = _model.pic_urls;
@@ -190,6 +217,10 @@
     _nameLabel.frame = _cellFrames.nameLabelFrame;
     _publishTimeLabel.frame = _cellFrames.publishTimeFrame;
     _contentLabel.frame = _cellFrames.contentFrame;
+    
+    if (_model.retweeted_status) {
+        _retweetedLabel.frame = _cellFrames.retweetedTextFrame;
+    }
     
     _imgViewContainer.frame = _cellFrames.imageViewContainerFrame;
     

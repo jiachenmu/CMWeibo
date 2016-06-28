@@ -20,5 +20,6 @@
 
 - (instancetype)initWithFrame:(CGRect)frame AngleLeftMargin:(CGFloat)angleLeftMargin AngleWidth:(CGFloat)angleWidth AngleHeight:(CGFloat)angleHeight;
 
+- (void)setFillColor:(UIColor *)fillColor;
 
 @end

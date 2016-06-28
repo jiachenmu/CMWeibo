@@ -72,17 +72,33 @@
     }
     
     //回复、转发的微博 **********************
+        /** 这里被转发的微博应该类似正文中的样式，也有图片，由于时间关系,没有做完整 */
     if (_model.retweeted_status) {
         NSString *str = [_model.retweeted_status.text stringByAppendingString:[NSString stringWithFormat:@"\n转发(%ld) | 评论(%ld)",_model.reposts_count,_model.comments_count]];
-        size = CM_MULTILINE_TEXTSIZE(_model.retweeted_status.text, Font(16), CGSizeMake((SCREEN_WIDTH - ContentLeftMargin - ContentRightMargin), CGFLOAT_MAX), 0);
-        _retweetedTextFrame = CGRectMake(<#CGFloat x#>, <#CGFloat y#>, <#CGFloat width#>, <#CGFloat height#>)
+        size = CM_MULTILINE_TEXTSIZE(str, Font(16), CGSizeMake((SCREEN_WIDTH - ContentLeftMargin - ContentRightMargin - 2 * RetweetedLeftMargin), CGFLOAT_MAX), 0);
+        _retweetedTextFrame = CGRectMake(RetweetedLeftMargin, RetweetedTopMargin, size.width, size.height);
+        
+        CGRect frame;
+        if (_model.pic_urls.count > 0 ) {
+            frame = _imageViewContainerFrame;
+        }else {
+            frame = _contentFrame;
+        }
+        _cornerViewFrame = CGRectMake(ContentLeftMargin, CGRectGetMaxY(frame), SCREEN_WIDTH - ContentLeftMargin - ContentRightMargin, CGRectGetHeight(_retweetedTextFrame) + 5 + 8 + 12);
     }
     
     //Bar ********************
 //    _operationBarOrigin =
+    CGRect frame = _contentFrame;
+    if (_model.pic_urls.count > 0) {
+        frame = _imageViewContainerFrame;
+        if (_model.retweeted_status) {
+            frame = _cornerViewFrame;
+        }
+    }
     OperationBar *bar = [[OperationBar alloc] init];
     bar.countArray =  @[@(_model.attitudes_count),@(_model.reposts_count),@(_model.comments_count)];
-    _operationBarOrigin = CGPointMake(SCREEN_WIDTH - bar.frame.size.width - OperationBarRightMargin, CGRectGetMaxY(_model.pic_urls.count > 0 ? _imageViewContainerFrame : _contentFrame) + OperationBarTopMargin);
+    _operationBarOrigin = CGPointMake(SCREEN_WIDTH - bar.frame.size.width - OperationBarRightMargin, CGRectGetMaxY(frame) + OperationBarTopMargin);
     
     
     _cellHeight = _operationBarOrigin.y + 20 + OperationBarBottomMargin;

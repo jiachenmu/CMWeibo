@@ -27,7 +27,8 @@
 + (NSAttributedString *)retweetedStatusAttributeStrWithWeiboModel:(WeiboModel *)model TapAction:(YYTextAction )tapAction {
     //先判断模型中是不是已经设置好富文本,富文本只创建一次
     if (model.retweetedStatusAttributeStr == nil && model.retweeted_status && model.retweeted_status.text.length > 0 ) {
-        model.retweetedStatusAttributeStr = [WeiboAttributerString attributeStringWithString:model.retweeted_status.text TapAction:tapAction];
+        NSString *str = [model.retweeted_status.text stringByAppendingString:[NSString stringWithFormat:@"\n转发(%ld) | 评论(%ld)",model.reposts_count,model.comments_count]];
+        model.retweetedStatusAttributeStr = [WeiboAttributerString attributeStringWithString:str TapAction:tapAction];
     }
     return model.retweetedStatusAttributeStr;
 }

@@ -52,6 +52,11 @@
     return [[CMSharpCornerView alloc] initWithFrame:frame BorderColor:[UIColor blackColor] BorderWidth:0.5 FillColor:[UIColor colorWithHex:0xF1F1F1] AngleLeftMargin:angleLeftMargin AngleWidth:angleWidth AngleHeight:angleHeight];
 }
 
+- (void)setFillColor:(UIColor *)fillColor {
+    _fillColor = fillColor;
+    [self setNeedsDisplay];
+}
+
 //绘制边框
 - (void)drawRect:(CGRect)rect{
     CGContextRef context = UIGraphicsGetCurrentContext();

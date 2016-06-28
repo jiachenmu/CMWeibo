@@ -181,7 +181,7 @@ typedef NS_ENUM(NSInteger, HomeRequestType) {
         //请求一条微博
         _requestCount += kRequestCount.integerValue;
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-            [CMNetwork GET:kURL_NewPublicWeibo parameters:@{@"access_token" : [User currentUser].wbtoken,@"count" : kRequestCount} success:^(NSString * _Nonnull jsonString) {
+            [CMNetwork GET:kURL_UserTimeline parameters:@{@"access_token" : [User currentUser].wbtoken,@"count" : kRequestCount} success:^(NSString * _Nonnull jsonString) {
 //                NSLog(@"%@",jsonString);
                 
                 if (type == HomeRequestTypeRefresh) {
