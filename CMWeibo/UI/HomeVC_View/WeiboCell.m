@@ -103,7 +103,8 @@
     [self.contentView addSubview:_contentLabel];
     
     _cornerView = [[CMSharpCornerView alloc] initWithFrame:CGRectZero AngleLeftMargin:10 AngleWidth:10 AngleHeight:5];
-    [_cornerView setFillColor:[UIColor colorWithHex:0xEDEDED]];
+    _cornerView.backgroundColor = [UIColor clearColor];
+//    [_cornerView setFillColor:[UIColor colorWithHex:0xEDEDED]];
     [self.contentView addSubview:_cornerView];
     
     _retweetedLabel = [YYLabel new];
@@ -220,6 +221,7 @@
     
     if (_model.retweeted_status) {
         _retweetedLabel.frame = _cellFrames.retweetedTextFrame;
+        _cornerView.frame = _cellFrames.cornerViewFrame;
     }
     
     _imgViewContainer.frame = _cellFrames.imageViewContainerFrame;

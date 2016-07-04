@@ -182,6 +182,8 @@
 /// 文本消息长度
 @property (assign, nonatomic) NSInteger textLength;
 
++ (instancetype)initWithobject:(id)obj;
+
 @end
 
 #pragma mark - 微博缓存模型 -----------------------------------------------------

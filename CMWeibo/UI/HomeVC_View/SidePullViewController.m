@@ -20,6 +20,7 @@
 @property (strong, nonatomic) UIImageView *iconView;
 //背景图片显示
 @property (strong, nonatomic) UIImageView *backView;
+@property (strong, nonatomic) UIVisualEffectView *effectView;
 @property (strong, nonatomic) UIButton *detailInfoBtn;
 
 /// 尖角View
@@ -75,10 +76,10 @@ const CGFloat CornerViewHeight = 50;
     [self.view addSubview:_backView];
     
     //iOS8 新增加的一个具体特效，或者称之为滤镜的View，详细属性看里面的定义
-    UIVisualEffectView *effectView = [[UIVisualEffectView alloc] initWithFrame:_backView.bounds];
-    [effectView setEffect:[UIBlurEffect effectWithStyle:UIBlurEffectStyleLight]];
-    effectView.alpha = 0.5;
-    [_backView addSubview:effectView];
+    _effectView = [[UIVisualEffectView alloc] initWithFrame:_backView.bounds];
+    [_effectView setEffect:nil];
+    _effectView.alpha = 0.5;
+    [_backView addSubview:_effectView];
     
     _iconView = [[UIImageView alloc] initWithFrame:CGRectMake(SidePullViewWidth/2 - IconViewHeight/2, IconViewTopMargin, IconViewHeight, IconViewHeight)];
     _iconView.userInteractionEnabled = true;
@@ -192,15 +193,28 @@ const CGFloat CornerViewHeight = 50;
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     
+    Weakself;
     //currentUser不存在的时候 请求数据
     if(!_currentUser || !_currentUser.avatar_large ) {
-        Weakself;
+        
         [UserModel getUserInfoWithSuccessBlock:^(UserModel *model) {
             weakself.currentUser = model;
             [weakself refreshUI];
         }];
-        
     }
+    [UIView animateWithDuration:0.3 animations:^{
+        [weakself.effectView setEffect:[UIBlurEffect effectWithStyle:UIBlurEffectStyleExtraLight]];
+    }];
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    
+    Weakself;
+    [weakself.effectView setEffect:nil];
+    [UIView animateWithDuration:0.3 animations:^{
+        [weakself.effectView setEffect:nil];
+    }];
 }
 
 //刷新页面

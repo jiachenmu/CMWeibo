@@ -92,9 +92,10 @@
     CGRect frame = _contentFrame;
     if (_model.pic_urls.count > 0) {
         frame = _imageViewContainerFrame;
-        if (_model.retweeted_status) {
-            frame = _cornerViewFrame;
-        }
+    }
+    if (_model.retweeted_status) {
+        NSLog(@"存在回复微博");
+        frame = _cornerViewFrame;
     }
     OperationBar *bar = [[OperationBar alloc] init];
     bar.countArray =  @[@(_model.attitudes_count),@(_model.reposts_count),@(_model.comments_count)];

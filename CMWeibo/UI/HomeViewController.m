@@ -207,13 +207,6 @@ typedef NS_ENUM(NSInteger, HomeRequestType) {
 
 #pragma mark - Build UI
 
-//- (SidePullView *)sidePullView {
-//    if (_sidePullView == nil) {
-////        _sidePullView = [SidePullViewWidth];
-//    }
-//    return _sidePullView;
-//}
-
 - (void)buildTableView {
     _showTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT - 64 - 44) style:UITableViewStylePlain];
     _showTableView.delegate = (id<UITableViewDelegate>) self;

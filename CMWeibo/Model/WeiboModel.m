@@ -35,10 +35,21 @@
     
     WeiboModel *model = [[WeiboModel alloc] init];
     model.cellFrames = [CMWeiboCellFrames cellFramesWithWeiboModel:model];
-    
+    if (model.retweeted_status) {
+        model.retweeted_status = [RetweetedModel initWithobject:model.retweeted_status];
+    }
     return model;
 }
 
+@end
+
+@implementation RetweetedModel
+
++ (instancetype)initWithobject:(id)obj {
+    RetweetedModel *retModel = [RetweetedModel mj_objectWithKeyValues:obj];
+    
+    return retModel;
+}
 
 @end
 
