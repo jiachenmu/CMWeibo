@@ -49,7 +49,7 @@
 }
 
 - (instancetype)initWithFrame:(CGRect)frame AngleLeftMargin:(CGFloat)angleLeftMargin AngleWidth:(CGFloat)angleWidth AngleHeight:(CGFloat)angleHeight {
-    return [[CMSharpCornerView alloc] initWithFrame:frame BorderColor:[UIColor blackColor] BorderWidth:0.5 FillColor:[UIColor colorWithHex:0xF1F1F1] AngleLeftMargin:angleLeftMargin AngleWidth:angleWidth AngleHeight:angleHeight];
+    return [[CMSharpCornerView alloc] initWithFrame:frame BorderColor:[UIColor colorWithHex:0x969696] BorderWidth:0.5 FillColor:[UIColor colorWithHex:0xF1F1F1] AngleLeftMargin:angleLeftMargin AngleWidth:angleWidth AngleHeight:angleHeight];
 }
 
 - (void)setFillColor:(UIColor *)fillColor {

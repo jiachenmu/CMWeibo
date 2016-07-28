@@ -28,12 +28,20 @@
     //先判断模型中是不是已经设置好富文本,富文本只创建一次
     if (model.retweetedStatusAttributeStr == nil && model.retweeted_status && model.retweeted_status.text.length > 0 ) {
         NSString *str = [model.retweeted_status.text stringByAppendingString:[NSString stringWithFormat:@"\n转发(%ld) | 评论(%ld)",model.reposts_count,model.comments_count]];
-        model.retweetedStatusAttributeStr = [WeiboAttributerString attributeStringWithString:str TapAction:tapAction];
+        
+        NSMutableAttributedString *attributeStr = [WeiboAttributerString attributeStringWithString:str TapAction:tapAction];
+        model.retweetedStatusAttributeStr = attributeStr;
+        
+        NSString *_str = [NSString stringWithFormat:@"\n转发(%ld) | 评论(%ld)",model.reposts_count,model.comments_count];
+        NSRange range = [str rangeOfString:_str];
+        
+        [attributeStr yy_setColor:Color_NavigationBar range:range];
+        
     }
     return model.retweetedStatusAttributeStr;
 }
 
-+ (NSAttributedString *)attributeStringWithString:(NSString *)str TapAction:(YYTextAction )tapAction{
++ (NSMutableAttributedString *)attributeStringWithString:(NSString *)str TapAction:(YYTextAction )tapAction{
     NSMutableAttributedString *attributeStr = [[NSMutableAttributedString alloc] initWithString:str];
     [attributeStr yy_setFont:Font(16) range:NSMakeRange(0, str.length)];
     // 1. 将所有的话题 例如 #ManoBoo# 这样的字符标记为蓝色

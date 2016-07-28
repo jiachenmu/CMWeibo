@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="140" id="KGk-i7-Jjw" customClass="SelectPlaceCell">
+            <rect key="frame" x="0.0" y="0.0" width="525" height="120"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="525" height="119"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="86m" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="57Y-sN-NTg">
+                        <rect key="frame" x="471" y="18" width="36" height="14"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="14" id="IqO-mT-yM3"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="附近" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mEc-DA-m2p">
+                        <rect key="frame" x="432" y="18" width="34" height="14"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="14" id="q1d-J3-9xO"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tag" translatesAutoresizingMaskIntoConstraints="NO" id="CNC-GD-5V3">
+                        <rect key="frame" x="18" y="42" width="20" height="20"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="20" id="15U-KX-oQW"/>
+                            <constraint firstAttribute="width" constant="20" id="JgN-01-98L"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="房地产,CBD商圈" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FR9-dK-crq">
+                        <rect key="frame" x="43" y="45" width="124" height="14"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="14" id="n12-y9-JBH"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" red="0.14734031993970761" green="0.73198216623036649" blue="0.18938743612101497" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="SelectPlaceCell_" text="北京市东城区朝内小区西水井胡同1号" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vf5-CD-zW4">
+                        <rect key="frame" x="18" y="87" width="489" height="14"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="14" id="Y7J-qx-H9i"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="place" translatesAutoresizingMaskIntoConstraints="NO" id="JOc-Am-Hmf">
+                        <rect key="frame" x="18" y="18" width="14" height="14"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="14" id="NkT-oe-QGq"/>
+                            <constraint firstAttribute="height" constant="14" id="Vvg-VF-iOz"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="西水井胡同1号楼" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zgw-iG-dM3">
+                        <rect key="frame" x="37" y="18" width="127" height="14"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="14" id="OnL-bs-bIL"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="JOc-Am-Hmf" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="10" id="6bn-Gh-oQx"/>
+                    <constraint firstItem="mEc-DA-m2p" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="10" id="Bid-Pv-Xwc"/>
+                    <constraint firstItem="zgw-iG-dM3" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="10" id="BnO-Sf-qeK"/>
+                    <constraint firstItem="vf5-CD-zW4" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="10" id="EwU-KR-pdB"/>
+                    <constraint firstItem="zgw-iG-dM3" firstAttribute="leading" secondItem="JOc-Am-Hmf" secondAttribute="trailing" constant="5" id="LV8-Gt-YVz"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="57Y-sN-NTg" secondAttribute="trailing" constant="10" id="R0l-h5-yFk"/>
+                    <constraint firstItem="57Y-sN-NTg" firstAttribute="leading" secondItem="mEc-DA-m2p" secondAttribute="trailing" constant="5" id="Smh-FE-7DG"/>
+                    <constraint firstItem="CNC-GD-5V3" firstAttribute="top" secondItem="zgw-iG-dM3" secondAttribute="bottom" constant="10" id="VJB-a6-9xB"/>
+                    <constraint firstItem="FR9-dK-crq" firstAttribute="leading" secondItem="CNC-GD-5V3" secondAttribute="trailing" constant="5" id="aQQ-Lc-dkY"/>
+                    <constraint firstItem="FR9-dK-crq" firstAttribute="centerY" secondItem="CNC-GD-5V3" secondAttribute="centerY" id="k09-07-kNB"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="vf5-CD-zW4" secondAttribute="trailing" constant="10" id="loT-JQ-xt4"/>
+                    <constraint firstItem="JOc-Am-Hmf" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="10" id="mbV-OP-tf2"/>
+                    <constraint firstItem="zgw-iG-dM3" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="10" id="s2w-si-fPF"/>
+                    <constraint firstItem="57Y-sN-NTg" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="10" id="sOi-7y-Jkv"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="vf5-CD-zW4" secondAttribute="bottom" constant="10" id="sjZ-ZQ-orX"/>
+                    <constraint firstItem="CNC-GD-5V3" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="10" id="wNu-rI-MjT"/>
+                </constraints>
+                <variation key="default">
+                    <mask key="constraints">
+                        <exclude reference="BnO-Sf-qeK"/>
+                    </mask>
+                </variation>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="detailAddressLabel" destination="vf5-CD-zW4" id="82W-K4-eB2"/>
+                <outlet property="directLabel" destination="mEc-DA-m2p" id="4FZ-a0-0zQ"/>
+                <outlet property="distanceLabel" destination="57Y-sN-NTg" id="yVw-H2-RCv"/>
+                <outlet property="poisNameLabel" destination="zgw-iG-dM3" id="93D-ea-knp"/>
+                <outlet property="tagLabel" destination="FR9-dK-crq" id="l0o-vi-HcQ"/>
+            </connections>
+            <point key="canvasLocation" x="536.5" y="419"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="place" width="21" height="21"/>
+        <image name="tag" width="20" height="20"/>
+    </resources>
+</document>

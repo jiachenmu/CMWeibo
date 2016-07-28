@@ -19,6 +19,8 @@
 - (void)dealloc {
     //画面销毁前移除通知
     [[NSNotificationCenter defaultCenter] removeObserver:self];
+    
+    NSLog(@"%@ -- dealloc",NSStringFromClass([self class]));
 }
 
 #pragma mark - 初始化方法
@@ -93,6 +95,19 @@
         user.expirationDate = result.expirationDate;
         [kManagedObjectContext save:nil];
     }
+}
+
+#pragma mark - Private method
+
+- (UIButton *)buttonWithImage:(UIImage *)normaleImage SelectedImage:(nullable UIImage *)selectedImage Frame:(CGRect)frame {
+    UIButton *btn = [[UIButton alloc] initWithFrame:frame];
+    [btn setImage:normaleImage forState:UIControlStateNormal];
+    if (selectedImage != nil) {
+        [btn setImage:selectedImage forState:UIControlStateSelected];
+    }
+    
+    
+    return btn;
 }
 
 @end

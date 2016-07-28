@@ -24,6 +24,11 @@
     success:(nullable void (^ )( NSString * _Nonnull))success
     failure:(nullable void (^)(NSURLSessionDataTask * _Nullable, NSError * _Nonnull))failure;
 
++ (void)spec_GET:(nullable NSString *)URLString
+      parameters:(nullable id)parameters
+         success:(nullable void (^ )( NSString * _Nonnull))success
+         failure:(nullable void (^)(NSURLSessionDataTask * _Nullable, NSError * _Nonnull))failure;
+
 //同时进行多个请求用这个
 + (void)async_GET:(nullable NSString *)URLString
  parameters:(nullable id)parameters

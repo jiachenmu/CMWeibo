@@ -21,11 +21,11 @@
  *
  *  @return 富文本
  */
-+ (NSAttributedString *)attributeStringWithString:(NSString *)str TapAction:(YYTextAction )tapAction;
++ (NSMutableAttributedString *)attributeStringWithString:(NSString *)str TapAction:(YYTextAction )tapAction;
 
 
 // 微博中 回复的微博 富文本
-+ (NSAttributedString *)retweetedStatusAttributeStrWithWeiboModel:(WeiboModel *)model TapAction:(YYTextAction )tapAction;
++ (NSMutableAttributedString *)retweetedStatusAttributeStrWithWeiboModel:(WeiboModel *)model TapAction:(YYTextAction )tapAction;
 
 
 ///  微博来源字符串处理

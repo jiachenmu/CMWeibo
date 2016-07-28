@@ -130,16 +130,7 @@
 
 #pragma mark - Private Method
 
-- (UIButton *)buttonWithImage:(UIImage *)normaleImage SelectedImage:(nullable UIImage *)selectedImage Frame:(CGRect)frame {
-    UIButton *btn = [[UIButton alloc] initWithFrame:frame];
-    [btn setImage:normaleImage forState:UIControlStateNormal];
-    if (selectedImage != nil) {
-        [btn setImage:selectedImage forState:UIControlStateSelected];
-    }
-    
-    
-    return btn;
-}
+
 
 /// 是否评论给博文作者
 - (void)setIsAtAuthor {

@@ -20,4 +20,10 @@
 
 - (void)userAuthorizeSuccess:(NSNotification *)notify;
 
+
+#pragma mark - quick method
+// 快速构建button
+- (UIButton *)buttonWithImage:(UIImage *)normaleImage SelectedImage:(nullable UIImage *)selectedImage Frame:(CGRect)frame;
+
+
 @end

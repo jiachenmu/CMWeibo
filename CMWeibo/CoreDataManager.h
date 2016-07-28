@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
+NS_ASSUME_NONNULL_BEGIN
+
 typedef  void(^ _Nonnull CompleteBlock)( NSArray * _Nullable array);
 
 @interface CoreDataManager : NSObject
@@ -41,3 +43,5 @@ typedef  void(^ _Nonnull CompleteBlock)( NSArray * _Nullable array);
 - (void)arrayWithObjectClass:(Class)class CompltetBlock:(CompleteBlock)compltetBlock;
 
 @end
+
+NS_ASSUME_NONNULL_END

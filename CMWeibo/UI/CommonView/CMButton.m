@@ -206,6 +206,8 @@ const CGFloat kDefaultFontScale = 20;
     }
     if ([_titleColorDict objectForKey:@(_controlState)]) {
         _titleLabel.textColor = [_titleColorDict objectForKey:@(_controlState)];
+    }else {
+        _titleLabel.textColor = [UIColor blackColor];
     }
     if (_titleLabel.frame.size.height == 0) {
         //titlelabel没有给frame

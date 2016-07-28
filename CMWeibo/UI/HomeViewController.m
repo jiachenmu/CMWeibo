@@ -17,6 +17,7 @@
 #import "RepostViewController.h"
 #import "CMBrowserViewController.h"
 #import "TopicViewController.h"
+#import "PublishViewController.h"
 
 typedef NS_ENUM(NSInteger, HomeRequestType) {
     HomeRequestTypeRefresh = 0,
@@ -38,6 +39,9 @@ typedef NS_ENUM(NSInteger, HomeRequestType) {
 
 @property (strong, nonatomic) User *currentUser;
 
+// 请求的页码
+@property (assign, nonatomic) NSInteger pageCount;
+
 @end
 
 @implementation HomeViewController
@@ -45,6 +49,7 @@ typedef NS_ENUM(NSInteger, HomeRequestType) {
 - (void)viewDidLoad {
     [super viewDidLoad];
 
+    _pageCount = 0;
     _requestCount = 0;
     
     //监听通知 - 用户授权失败
@@ -180,13 +185,16 @@ typedef NS_ENUM(NSInteger, HomeRequestType) {
         Weakself;
         //请求一条微博
         _requestCount += kRequestCount.integerValue;
+        _pageCount += 1;
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-            [CMNetwork GET:kURL_UserTimeline parameters:@{@"access_token" : [User currentUser].wbtoken,@"count" : kRequestCount} success:^(NSString * _Nonnull jsonString) {
+            [CMNetwork GET:kURL_NewPublicWeibo parameters:@{@"access_token" : [User currentUser].wbtoken,@"count" : kRequestCount,@"page" : @(_pageCount)} success:^(NSString * _Nonnull jsonString) {
 //                NSLog(@"%@",jsonString);
                 
                 if (type == HomeRequestTypeRefresh) {
+                    weakself.pageCount = 0;
                     weakself.list = [WeiboList initWithJSONString:jsonString];
                 }else {
+                    weakself.pageCount += 1;
                     weakself.list = [weakself.list addDataFromJson:jsonString];
                 }
                 //请求到微博数据列表，刷新UI
@@ -303,20 +311,11 @@ typedef NS_ENUM(NSInteger, HomeRequestType) {
     [drawController toggleDrawerSide:MMDrawerSideLeft animated:true completion:^(BOOL finished) {
         
     }];
-    
-    
-//    [CMNetwork GET:kURL_UserInfo parameters:@{@"access_token" : [User currentUser].wbtoken ,@"uid" : [User currentUser].wbCurrentUserID} success:^(NSString * _Nonnull jsonString) {
-//        NSLog(@"-- : %@",jsonString);
-//    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-//        
-//    }];
-    
-//    CMBrowserViewController *editMyGroupList = [[CMBrowserViewController alloc] initWithUrl:kURL_EditMyGroup];
-//    [self.navigationController pushViewController:editMyGroupList animated:true];
 }
 
 - (void)editWeibo {
-
+    PublishViewController *publishVC = [[PublishViewController alloc] initWithLeftTitle:@"返回" RightTitle:@"发表"];
+    [self.navigationController pushViewController:publishVC animated:true];
 }
 
 @end

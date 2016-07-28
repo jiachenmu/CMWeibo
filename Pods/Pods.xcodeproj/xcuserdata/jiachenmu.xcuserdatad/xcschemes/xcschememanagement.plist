@@ -9,6 +9,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>ELCImagePickerController.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>MJExtension.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -19,7 +24,7 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>Pods.xcscheme</key>
+		<key>Pods-CMWeibo.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -57,12 +62,7 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>17E185AABE87E7384EFF36A6D9AF4C50</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>4E52B2C52E750DE519CF0AC8837EFBCA</key>
+		<key>33FE773109BFB4FB4EBE682D1159F2AB</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -72,7 +72,27 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>859BCFC6B3FF26CF5B1CB32BAC63C183</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>89F5BB1FEBC25AFA22CAAD589B8E8786</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>928353533005A4198EBDA5B700D37B64</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>947BF32422206178B2C24512F8B8714F</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>94EBB49E3B650AA890E9A7722CC7BE44</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -82,27 +102,17 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>9FBA867F6FA16DB2499094BE47FBDAAD</key>
+		<key>B71A641CFEFFD67D07B1DBC1A7CC55A0</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>BDDACF0DB41C7AAA429FC8161D89C78C</key>
+		<key>D552B86ACC4D47120EA67492D2B93535</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>C67C8CDF23E536DF55FF16DFC27E7AE0</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>CE953E33CF04FD0E2A798759EEE32264</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>E73EDAA2EC8EBCDFD21E4741D9CD6E02</key>
+		<key>FFA10E9BA3826B4C90516AADF227D981</key>
 		<dict>
 			<key>primary</key>
 			<true/>

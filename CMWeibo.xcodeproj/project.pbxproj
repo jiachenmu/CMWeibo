@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		14C22E7BB133C163B70E106F /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AADD5702B25034210874AE4B /* libPods.a */; };
+		3F50190478883672DA5AF557 /* libPods-CMWeibo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C38F8E950DDA101E234C3058 /* libPods-CMWeibo.a */; };
 		460946981D0F9F930029F8D2 /* libiconv.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 460946971D0F9F930029F8D2 /* libiconv.tbd */; };
 		4609469A1D0F9FB50029F8D2 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 460946991D0F9FB50029F8D2 /* ImageIO.framework */; };
 		4613B2701CFD86080089DD41 /* UITableView+CustomRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = 4613B26F1CFD86080089DD41 /* UITableView+CustomRefresh.m */; };
@@ -49,6 +49,14 @@
 		46BE796A1D1E292200DA215C /* ManageAccountCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 46BE79681D1E292200DA215C /* ManageAccountCell.m */; };
 		46BE796B1D1E292200DA215C /* ManageAccountCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 46BE79691D1E292200DA215C /* ManageAccountCell.xib */; };
 		46BE796E1D1E3D0B00DA215C /* CMView.m in Sources */ = {isa = PBXBuildFile; fileRef = 46BE796D1D1E3D0B00DA215C /* CMView.m */; };
+		46EC9D4B1D461E4600456160 /* PublishViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 46EC9D491D461E4600456160 /* PublishViewController.m */; };
+		46EC9D4C1D461E4600456160 /* PublishViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 46EC9D4A1D461E4600456160 /* PublishViewController.xib */; };
+		46EC9D531D473C0600456160 /* CMLocationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 46EC9D521D473C0600456160 /* CMLocationViewController.m */; };
+		46EC9D551D473D0500456160 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 46EC9D541D473D0500456160 /* CoreLocation.framework */; };
+		46EC9D571D473D6700456160 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 46EC9D561D473D6700456160 /* MapKit.framework */; };
+		46EC9D5A1D484EDE00456160 /* CMLocationModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 46EC9D591D484EDE00456160 /* CMLocationModel.m */; };
+		46EC9D5E1D4890BD00456160 /* SelectPlaceCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 46EC9D5C1D4890BD00456160 /* SelectPlaceCell.m */; };
+		46EC9D5F1D4890BD00456160 /* SelectPlaceCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 46EC9D5D1D4890BD00456160 /* SelectPlaceCell.xib */; };
 		46FB48E81CF29D1800DB51B8 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 46FB48E71CF29D1800DB51B8 /* HomeViewController.m */; };
 		46FB48EB1CF29D2800DB51B8 /* MessageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 46FB48EA1CF29D2800DB51B8 /* MessageViewController.m */; };
 		46FB48EE1CF29D3A00DB51B8 /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 46FB48ED1CF29D3A00DB51B8 /* SearchViewController.m */; };
@@ -79,7 +87,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		13C0FEA0E52AD037AAC5756B /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		460946971D0F9F930029F8D2 /* libiconv.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libiconv.tbd; path = usr/lib/libiconv.tbd; sourceTree = SDKROOT; };
 		460946991D0F9FB50029F8D2 /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
 		4613B26E1CFD86080089DD41 /* UITableView+CustomRefresh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UITableView+CustomRefresh.h"; path = "UI/CommonView/UITableView+CustomRefresh.h"; sourceTree = "<group>"; };
@@ -158,6 +165,18 @@
 		46BE79691D1E292200DA215C /* ManageAccountCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ManageAccountCell.xib; path = UI/HomeVC_View/ManageAccountCell.xib; sourceTree = "<group>"; };
 		46BE796C1D1E3D0B00DA215C /* CMView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CMView.h; path = UI/CommonView/CMView.h; sourceTree = "<group>"; };
 		46BE796D1D1E3D0B00DA215C /* CMView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CMView.m; path = UI/CommonView/CMView.m; sourceTree = "<group>"; };
+		46EC9D481D461E4600456160 /* PublishViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PublishViewController.h; path = UI/Home_function/PublishViewController.h; sourceTree = "<group>"; };
+		46EC9D491D461E4600456160 /* PublishViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PublishViewController.m; path = UI/Home_function/PublishViewController.m; sourceTree = "<group>"; };
+		46EC9D4A1D461E4600456160 /* PublishViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PublishViewController.xib; path = UI/Home_function/PublishViewController.xib; sourceTree = "<group>"; };
+		46EC9D511D473C0600456160 /* CMLocationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CMLocationViewController.h; path = CommonTools/CMLocationViewController.h; sourceTree = "<group>"; };
+		46EC9D521D473C0600456160 /* CMLocationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CMLocationViewController.m; path = CommonTools/CMLocationViewController.m; sourceTree = "<group>"; };
+		46EC9D541D473D0500456160 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		46EC9D561D473D6700456160 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		46EC9D581D484EDE00456160 /* CMLocationModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CMLocationModel.h; path = Model/CMLocationModel.h; sourceTree = "<group>"; };
+		46EC9D591D484EDE00456160 /* CMLocationModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CMLocationModel.m; path = Model/CMLocationModel.m; sourceTree = "<group>"; };
+		46EC9D5B1D4890BD00456160 /* SelectPlaceCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SelectPlaceCell.h; path = UI/HomeVC_View/SelectPlaceCell.h; sourceTree = "<group>"; };
+		46EC9D5C1D4890BD00456160 /* SelectPlaceCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SelectPlaceCell.m; path = UI/HomeVC_View/SelectPlaceCell.m; sourceTree = "<group>"; };
+		46EC9D5D1D4890BD00456160 /* SelectPlaceCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SelectPlaceCell.xib; path = UI/HomeVC_View/SelectPlaceCell.xib; sourceTree = "<group>"; };
 		46FB48E61CF29D1800DB51B8 /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HomeViewController.h; path = UI/HomeViewController.h; sourceTree = "<group>"; };
 		46FB48E71CF29D1800DB51B8 /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HomeViewController.m; path = UI/HomeViewController.m; sourceTree = "<group>"; };
 		46FB48E91CF29D2800DB51B8 /* MessageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MessageViewController.h; path = UI/MessageViewController.h; sourceTree = "<group>"; };
@@ -178,8 +197,9 @@
 		46FB49031CF2DECB00DB51B8 /* CMNetwork.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CMNetwork.m; path = NetworkTools/CMNetwork.m; sourceTree = "<group>"; };
 		46FB49061CF2E67A00DB51B8 /* WeiboModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WeiboModel.h; path = Model/WeiboModel.h; sourceTree = "<group>"; };
 		46FB49071CF2E67A00DB51B8 /* WeiboModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WeiboModel.m; path = Model/WeiboModel.m; sourceTree = "<group>"; };
-		494437FA2030427EBD1C5965 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
-		AADD5702B25034210874AE4B /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		86B5867DD7140126DEFB18B5 /* Pods-CMWeibo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CMWeibo.release.xcconfig"; path = "Pods/Target Support Files/Pods-CMWeibo/Pods-CMWeibo.release.xcconfig"; sourceTree = "<group>"; };
+		A947BAB7A43575917CE9AFF0 /* Pods-CMWeibo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CMWeibo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CMWeibo/Pods-CMWeibo.debug.xcconfig"; sourceTree = "<group>"; };
+		C38F8E950DDA101E234C3058 /* libPods-CMWeibo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-CMWeibo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -187,12 +207,14 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				46EC9D571D473D6700456160 /* MapKit.framework in Frameworks */,
+				46EC9D551D473D0500456160 /* CoreLocation.framework in Frameworks */,
 				4609469A1D0F9FB50029F8D2 /* ImageIO.framework in Frameworks */,
 				460946981D0F9F930029F8D2 /* libiconv.tbd in Frameworks */,
 				4658F2E31CFC2AE400E134AB /* libicucore.tbd in Frameworks */,
 				464CEB821CEDD7DF00A6D2FC /* MediaPlayer.framework in Frameworks */,
 				46B566141CE9DB0A0071FADA /* CoreData.framework in Frameworks */,
-				14C22E7BB133C163B70E106F /* libPods.a in Frameworks */,
+				3F50190478883672DA5AF557 /* libPods-CMWeibo.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -213,9 +235,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		116C74754354948A43109F9F /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				A947BAB7A43575917CE9AFF0 /* Pods-CMWeibo.debug.xcconfig */,
+				86B5867DD7140126DEFB18B5 /* Pods-CMWeibo.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		4613B27A1D05178C0089DD41 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				46EC9D441D4612DE00456160 /* PublishViewController */,
 				46BE79611D1E267000DA215C /* SidePullViewController */,
 				462719601D1151B800C8D844 /* TopicViewController */,
 				4613B2851D06C6D80089DD41 /* SelectAtSomeOneViewContrloller */,
@@ -371,8 +403,8 @@
 				46BB22EC1CE9993F0017FCB9 /* CMWeiboTests */,
 				46BB22F71CE9993F0017FCB9 /* CMWeiboUITests */,
 				46BB22D11CE9993F0017FCB9 /* Products */,
-				7656540E5F6209BC24CDBB14 /* Pods */,
 				B860DF6107A0B99B3747E4B0 /* Frameworks */,
+				116C74754354948A43109F9F /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -483,6 +515,39 @@
 			name = View;
 			sourceTree = "<group>";
 		};
+		46EC9D441D4612DE00456160 /* PublishViewController */ = {
+			isa = PBXGroup;
+			children = (
+				46EC9D481D461E4600456160 /* PublishViewController.h */,
+				46EC9D491D461E4600456160 /* PublishViewController.m */,
+				46EC9D4A1D461E4600456160 /* PublishViewController.xib */,
+				46EC9D501D473A3F00456160 /* Controller */,
+				46EC9D4D1D47091A00456160 /* View */,
+			);
+			name = PublishViewController;
+			sourceTree = "<group>";
+		};
+		46EC9D4D1D47091A00456160 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		46EC9D501D473A3F00456160 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				46EC9D511D473C0600456160 /* CMLocationViewController.h */,
+				46EC9D521D473C0600456160 /* CMLocationViewController.m */,
+				46EC9D5B1D4890BD00456160 /* SelectPlaceCell.h */,
+				46EC9D5C1D4890BD00456160 /* SelectPlaceCell.m */,
+				46EC9D5D1D4890BD00456160 /* SelectPlaceCell.xib */,
+				46EC9D581D484EDE00456160 /* CMLocationModel.h */,
+				46EC9D591D484EDE00456160 /* CMLocationModel.m */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
 		46FB48E11CF2988600DB51B8 /* UI */ = {
 			isa = PBXGroup;
 			children = (
@@ -585,25 +650,18 @@
 			name = WeiboModel;
 			sourceTree = "<group>";
 		};
-		7656540E5F6209BC24CDBB14 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				494437FA2030427EBD1C5965 /* Pods.debug.xcconfig */,
-				13C0FEA0E52AD037AAC5756B /* Pods.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
 		B860DF6107A0B99B3747E4B0 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				46EC9D561D473D6700456160 /* MapKit.framework */,
+				46EC9D541D473D0500456160 /* CoreLocation.framework */,
 				460946991D0F9FB50029F8D2 /* ImageIO.framework */,
 				460946971D0F9F930029F8D2 /* libiconv.tbd */,
 				4658F2E21CFC2AE400E134AB /* libicucore.tbd */,
 				464CEB811CEDD7DF00A6D2FC /* MediaPlayer.framework */,
 				46B566131CE9DB0A0071FADA /* CoreData.framework */,
 				46BB23081CE9A43F0017FCB9 /* Security.framework */,
-				AADD5702B25034210874AE4B /* libPods.a */,
+				C38F8E950DDA101E234C3058 /* libPods-CMWeibo.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -615,12 +673,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 46BB22FD1CE9993F0017FCB9 /* Build configuration list for PBXNativeTarget "CMWeibo" */;
 			buildPhases = (
-				00BEEAF6934BCE9DE3604569 /* Check Pods Manifest.lock */,
+				5564B83DC23F5DD4DF911139 /* [CP] Check Pods Manifest.lock */,
 				46BB22CC1CE9993F0017FCB9 /* Sources */,
 				46BB22CD1CE9993F0017FCB9 /* Frameworks */,
 				46BB22CE1CE9993F0017FCB9 /* Resources */,
-				3135701D9E88FCC3D6533E3D /* Embed Pods Frameworks */,
-				9CE791950C6B53EC448B9B2D /* Copy Pods Resources */,
+				9D095743F2AC50946EA33395 /* [CP] Embed Pods Frameworks */,
+				2DF803C875C621C64A54B07A /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -720,6 +778,8 @@
 				46BE796B1D1E292200DA215C /* ManageAccountCell.xib in Resources */,
 				46BB22E31CE9993F0017FCB9 /* LaunchScreen.storyboard in Resources */,
 				46BB22E01CE9993F0017FCB9 /* Assets.xcassets in Resources */,
+				46EC9D5F1D4890BD00456160 /* SelectPlaceCell.xib in Resources */,
+				46EC9D4C1D461E4600456160 /* PublishViewController.xib in Resources */,
 				46BB22DE1CE9993F0017FCB9 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -741,14 +801,29 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		00BEEAF6934BCE9DE3604569 /* Check Pods Manifest.lock */ = {
+		2DF803C875C621C64A54B07A /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Check Pods Manifest.lock";
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CMWeibo/Pods-CMWeibo-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		5564B83DC23F5DD4DF911139 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -756,34 +831,19 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		3135701D9E88FCC3D6533E3D /* Embed Pods Frameworks */ = {
+		9D095743F2AC50946EA33395 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Embed Pods Frameworks";
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		9CE791950C6B53EC448B9B2D /* Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CMWeibo/Pods-CMWeibo-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -797,6 +857,7 @@
 				46FB49041CF2DECB00DB51B8 /* CMNetwork.m in Sources */,
 				462719661D13FDF900C8D844 /* CMButton.m in Sources */,
 				46BE79651D1E26A400DA215C /* ManangeAccountViewController.m in Sources */,
+				46EC9D5A1D484EDE00456160 /* CMLocationModel.m in Sources */,
 				46BE796A1D1E292200DA215C /* ManageAccountCell.m in Sources */,
 				464CEB851CEEB02100A6D2FC /* User+CoreDataProperties.m in Sources */,
 				46B566621CE9E9D90071FADA /* CoreDataManager.m in Sources */,
@@ -806,6 +867,7 @@
 				4658F29E1CF7D97500E134AB /* WeiboAttributerString.m in Sources */,
 				4613B27E1D0518180089DD41 /* RepostViewController.m in Sources */,
 				467CAC391CF3FD3B00F487AB /* OperationBar.m in Sources */,
+				46EC9D531D473C0600456160 /* CMLocationViewController.m in Sources */,
 				46FB48EE1CF29D3A00DB51B8 /* SearchViewController.m in Sources */,
 				46BE796E1D1E3D0B00DA215C /* CMView.m in Sources */,
 				4613B2731CFD93260089DD41 /* OperationToolBar.m in Sources */,
@@ -828,7 +890,9 @@
 				46FB49001CF2B0A000DB51B8 /* SidePullViewController.m in Sources */,
 				467CAC351CF3F88200F487AB /* WeiboCell.m in Sources */,
 				4613B2761D0119B70089DD41 /* FavoriteModel.m in Sources */,
+				46EC9D5E1D4890BD00456160 /* SelectPlaceCell.m in Sources */,
 				461CF5931CF57794008FC4FF /* CMWeiboCellFrames.m in Sources */,
+				46EC9D4B1D461E4600456160 /* PublishViewController.m in Sources */,
 				4623A92D1D1AAB8F0052248D /* CMSharpCornerView.m in Sources */,
 				46FB48E81CF29D1800DB51B8 /* HomeViewController.m in Sources */,
 				46FB48F51CF2A94F00DB51B8 /* CMBaseNavigationController.m in Sources */,
@@ -971,7 +1035,7 @@
 		};
 		46BB22FE1CE9993F0017FCB9 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 494437FA2030427EBD1C5965 /* Pods.debug.xcconfig */;
+			baseConfigurationReference = A947BAB7A43575917CE9AFF0 /* Pods-CMWeibo.debug.xcconfig */;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -995,7 +1059,7 @@
 		};
 		46BB22FF1CE9993F0017FCB9 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 13C0FEA0E52AD037AAC5756B /* Pods.release.xcconfig */;
+			baseConfigurationReference = 86B5867DD7140126DEFB18B5 /* Pods-CMWeibo.release.xcconfig */;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;

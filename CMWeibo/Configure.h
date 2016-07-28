@@ -21,6 +21,9 @@
 #define WXAppID     @"wx818610eb304dca09"
 #define WXAppSecret @"ccead335083923c72a384e9104657d67"
 
+//百度地图api key
+#define BaiduMapKey @"OTZHm7DueF4SvDgwUWqr2TVD4Snt0Cwb"
+
 #pragma mark - 网络请求相关 --------------------------------------------------------
 #import <AFNetworking.h>
 #import "CMNetwork.h"
@@ -54,6 +57,8 @@
 #import <YYText.h>
 #import <AVKit/AVKit.h>
 #import <AVFoundation/AVFoundation.h>
+#import <CoreLocation/CoreLocation.h>
+#import <MapKit/MapKit.h>
 #import "UIColor+HexColor.h"
 #import "CMBaseNavigationController.h"
 #define Color_NavigationBar [UIColor colorWithHex:0x3581f4]

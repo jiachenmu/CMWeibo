@@ -49,6 +49,7 @@
 }
 
 - (void)buildUI {
+    _imageCount = 0;
     _imgViewArray = [[NSMutableArray alloc] initWithCapacity:9];
     
     _imgView0 = [[YYAnimatedImageView alloc] init];
@@ -98,9 +99,10 @@
     }
 }
 
+//显示微博列表图片
 - (void)setImageUrls:(NSArray *)imageUrls {
     _imageUrls = imageUrls;
-    
+    _imageCount = imageUrls.count;
     if (_imageUrls.count > 0 ) {
         [_imgViewArray enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
             YYAnimatedImageView *imgView = (YYAnimatedImageView *)obj;
@@ -114,6 +116,29 @@
                     //CMCache 缓存下已经请求的图片
                     [[CMCache imageCache] setObject:image forKey:pic.large_pic];
                 }];
+            }
+        }];
+    }
+}
+
+//显示相册中选择的图片
+- (void)setImageSources:(NSArray *)imageSources {
+    _imageCount = imageSources.count;
+    _imageSources = imageSources;
+    if (imageSources.count == 0) {
+        [_imgViewArray enumerateObjectsUsingBlock:^(YYAnimatedImageView * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+            YYAnimatedImageView *imgView = (YYAnimatedImageView *)obj;
+            imgView.hidden = true;
+        }];
+        return;
+    }else {
+        [_imgViewArray enumerateObjectsUsingBlock:^(YYAnimatedImageView * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+            YYAnimatedImageView *imgView = (YYAnimatedImageView *)obj;
+            if (idx > _imageSources.count - 1) {
+                imgView.hidden = true;
+            }else {
+                imgView.hidden = false;
+                [imgView setImage:imageSources[idx]];
             }
         }];
     }

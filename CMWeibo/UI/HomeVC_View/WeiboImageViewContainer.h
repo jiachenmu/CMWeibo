@@ -13,10 +13,16 @@ typedef void(^ClickImageBlock)(NSInteger imageTag);
 
 @interface WeiboImageViewContainer : UIView
 
+//显示微博列表中的微博图片
 @property (strong, nonatomic) NSArray<PicModel *> *imageUrls;
+
+//填写微博正文选择的图片
+@property (strong, nonatomic) NSArray <UIImage *> *imageSources;
 
 - (instancetype)initWithWidth:(CGFloat)viewWidth;
 
 @property (copy, nonatomic) ClickImageBlock clickImageBlock;
+
+@property (assign, readonly, nonatomic) NSInteger imageCount;
 
 @end

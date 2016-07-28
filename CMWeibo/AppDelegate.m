@@ -4,7 +4,9 @@
 //
 //  Created by jiachenmu on 5/15/16.
 //  Copyright (c) 2013 SINA iOS Team. All rights reserved.
-//
+//  欢迎查看ManoBoo的开源项目 <CMWeibo>
+//  简书文章地址：
+//  Github
 
 #import "AppDelegate.h"
 #import "User.h"

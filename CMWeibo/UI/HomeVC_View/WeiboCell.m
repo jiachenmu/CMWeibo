@@ -104,6 +104,7 @@
     
     _cornerView = [[CMSharpCornerView alloc] initWithFrame:CGRectZero AngleLeftMargin:10 AngleWidth:10 AngleHeight:5];
     _cornerView.backgroundColor = [UIColor clearColor];
+    _cornerView.alpha = 0.8;
 //    [_cornerView setFillColor:[UIColor colorWithHex:0xEDEDED]];
     [self.contentView addSubview:_cornerView];
     
